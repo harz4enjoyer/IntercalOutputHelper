@@ -2,11 +2,12 @@ import Data.Char (ord)
 
 main :: IO ()
 main = do
+  putStrLn "Write something: \n"
   input <- getLine
   let intercalIndex = convertToIntercal input
   let intercalCode = generateIntercal intercalIndex
-  putStrLn (show intercalCode)
-  writeFile "output.intercal" intercalCode
+  putStrLn "Intercal code try to PLEASE the compiler: \n"
+  putStrLn intercalCode
 
 convertToIntercal :: String -> [Int]
 convertToIntercal input = add256 $ sequentialSubtract $ toDecimal $ toReverse $ toBinary $ toASCII input
